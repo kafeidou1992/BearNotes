@@ -1,0 +1,76 @@
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.note {
+    position: absolute;
+    width: 220px;
+    margin-top: 24px;
+    margin-left: 24px;
+    transition: all .5s;
+    z-index: 0;
+    background-color: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.15);
+
+    
+    .note-header {
+        position: relative;
+        color: #999;
+        cursor: move;
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid #eaeaea;
+
+        .title {
+            font-size: 12px;
+            line-height: 16px;
+        }
+      
+        .delete {
+            font-size: 16px;
+            line-height: 16px;
+            float: right;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+      
+        .corner {
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            border-left: 8px solid #e78183;
+            border-top: 8px solid #e78183;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            left: -16px;
+            top: 0;
+        }
+    }
+
+    &:hover .delete{
+        opacity: 1;
+    }
+   
+    &:hover {
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.20);
+    }
+        
+    .note-content {
+        padding: 16px 16px 24px 16px;
+        outline: none;
+        font-size: 14px;
+        color: #444;
+        line-height: 28px;
+    }
+}
+  
+.drag {
+    opacity: 0.8;
+    transition: none; // 防止鼠标拖动时位置不能跟随
+}

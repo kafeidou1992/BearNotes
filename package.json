@@ -1,0 +1,32 @@
+{
+  "name": "express-bearnotes",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "PORT=8080 node ./bin/www",
+    "webpack": "webpack --config ./src/webpack.config.js",
+    "watch": "onchange 'src/**/*.js' 'src/**/*.less' -- npm run webpack"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "onchange": "^4.0.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3"
+  }
+}

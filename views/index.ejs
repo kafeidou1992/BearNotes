@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BEAR NOTES</title>
+</head>
+<body>
+  <% if(isLogin){ %>
+    <div id="header">
+      <a href="#" class="add-note"><span class="plus">+</span><span class="add">添加新便签</span></a>
+      <div class="logo"><img src="images/bearnotes.png" alt="BEAR NOTES"></div>
+      <div class="user-area">
+        <div class="avarta"><img src="<%= user.avatar %>"></div>
+        <ul class="child">
+          <li class="username"><%= user.name %></li>
+          <li><a href="/auth/logout" class="logout">注销</a></li>
+        </ul>         
+      </div>
+    </div>
+    <div id="container"></div>
+    <div class="footer-bear"><img src="images/bear.jpg" alt="BEAR NOTES"></div>
+  <% }else{ %>
+    <div id="header">
+      <div class="logo"><img src="images/bearnotes.png" alt="BEAR NOTES"></div>
+    </div>
+    <div class="wrap">
+      <div class="main">
+          <div class="banner">
+            <div class="welcome-img"><img src="images/welcome.jpg"></div>
+            <div class="welcome-content">
+              <h2>欢迎使用</h2>
+              <p>Bear Notes 是用于优美、流畅记录笔记的应用</p>
+              <a href="/auth/github" class="login"><img src="images/github.png"><span>GitHub登录</span></a>
+            </div>
+          </div>
+          <div class="state"><img src="images/state.jpg"></div>
+      </div> 
+      <div class="footer">@kafeidou</div>
+    </div>
+  <% } %>  
+  <script src="js/index.js"></script>
+</body>
+</html>
