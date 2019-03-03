@@ -29,7 +29,7 @@ var waterfall = (function(){
             })
             self.heightArray[self.minIdx] += $(this).outerHeight(true)
         })
-        this.$container.css('height',Math.max.apply(undefined,this.heightArray))
+        this.$container.css('height',Math.max.apply(undefined,this.heightArray)+'px')
     }
     return {
         init: init,

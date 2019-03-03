@@ -3,11 +3,10 @@ var Toast = require('../module/toast.js').Toast
 var Events = require('../module/event.js')
 var waterfall = require('../module/waterfall.js')
 var note = require('../module/note.js').note
-require('../../less/index.less')
 
 Events.on('toast',Toast)
-Events.on('waterfall',function(obj){
-    waterfall.init(obj)
+Events.on('waterfall',function($ct){
+    waterfall.init($ct)
 })// 防止waterfull内部的this变，不能直接用waterfall.init
 
 function load(){
@@ -17,8 +16,11 @@ function load(){
     }).done(function(res){
         if(res.status===0){
             if(res.data.length){
-                $.each(res.data,function(idx,ele){   //res.data 所有note的信息对象，每个note信息对象包含id,content,username属性
-                    new note(ele)
+                $.each(res.data,function(idx,ele){   //res.data 所有note的信息对象组成的数组，每个note信息对象包含id,content,userid,createdAt,updatedAt属性
+                    new note({
+                        id: ele.id,
+                        content: ele.content
+                    })
                 })
                 Events.fire('waterfall',$('#container'))
             } 
